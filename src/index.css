@@ -1,0 +1,168 @@
+@import "tailwindcss";
+
+/* NLWA Prototype Design Tokens */
+/* Colours: slate greys, teal-600 accent, amber for annotations */
+/* Font: system sans-serif stack */
+
+/* Annotation callout styling */
+.annotation {
+  background-color: #fef3c7; /* amber-100 */
+  border-left: 4px solid #d97706; /* amber-600 */
+  padding: 1rem;
+  margin: 1rem 0;
+  border-radius: 0.25rem;
+  font-size: 0.875rem;
+}
+
+.annotation-title {
+  font-weight: 700;
+  color: #92400e; /* amber-800 */
+  margin-bottom: 0.25rem;
+}
+
+.annotation-hidden .annotation {
+  display: none;
+}
+
+/* Dev annotation - blue callout for technical build notes */
+.dev-note {
+  background-color: #dbeafe; /* blue-100 */
+  border-left: 4px solid #2563eb; /* blue-600 */
+  padding: 1rem;
+  margin: 1rem 0;
+  border-radius: 0.25rem;
+  font-size: 0.875rem;
+}
+
+.dev-note-title {
+  font-weight: 700;
+  color: #1e40af; /* blue-800 */
+  margin-bottom: 0.25rem;
+}
+
+.annotation-hidden .dev-note {
+  display: none;
+}
+
+/* Watermark */
+.watermark {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+  padding: 0.5rem;
+  background: #1e293b;
+  color: #94a3b8;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  z-index: 50;
+  opacity: 0.9;
+}
+
+/* Email mock card */
+.email-mock {
+  max-width: 600px;
+  margin: 1.5rem auto;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  background: white;
+}
+
+.email-mock-header {
+  background: #f8fafc;
+  padding: 1rem;
+  border-bottom: 1px solid #e2e8f0;
+  font-size: 0.875rem;
+  color: #475569;
+}
+
+.email-mock-body {
+  padding: 1.5rem;
+}
+
+/* Dark mode overrides */
+.dark-mode {
+  background-color: #0f172a !important; /* slate-900 */
+  color: #e2e8f0 !important; /* slate-200 */
+}
+
+.dark-mode .bg-slate-50 { background-color: #0f172a !important; }
+.dark-mode .bg-white { background-color: #1e293b !important; }
+.dark-mode .bg-slate-100 { background-color: #1e293b !important; }
+.dark-mode .bg-slate-200 { background-color: #334155 !important; }
+.dark-mode .text-slate-800 { color: #e2e8f0 !important; }
+.dark-mode .text-slate-700 { color: #cbd5e1 !important; }
+.dark-mode .text-slate-600 { color: #94a3b8 !important; }
+.dark-mode .text-slate-500 { color: #94a3b8 !important; }
+.dark-mode .text-slate-400 { color: #64748b !important; }
+.dark-mode .border-slate-200 { border-color: #334155 !important; }
+.dark-mode .border-slate-300 { border-color: #475569 !important; }
+
+/* Cards and containers */
+.dark-mode [class*="bg-white"] { background-color: #1e293b !important; }
+.dark-mode [class*="border-slate"] { border-color: #334155 !important; }
+.dark-mode [class*="shadow"] { box-shadow: 0 1px 3px rgba(0,0,0,0.4) !important; }
+
+/* Tables */
+.dark-mode table { color: #e2e8f0; }
+.dark-mode th { background-color: #1e293b !important; color: #cbd5e1 !important; }
+.dark-mode tr:nth-child(even) td { background-color: rgba(30, 41, 59, 0.5) !important; }
+.dark-mode td { border-color: #334155 !important; }
+
+/* Form elements */
+.dark-mode input, .dark-mode select, .dark-mode textarea {
+  background-color: #1e293b !important;
+  color: #e2e8f0 !important;
+  border-color: #475569 !important;
+}
+
+/* Hero sections (teal bg) - leave these alone, they look fine in dark mode */
+
+/* Annotations - slightly darken but keep recognisable */
+.dark-mode .annotation {
+  background-color: #422006 !important;
+  border-left-color: #b45309 !important;
+}
+.dark-mode .annotation .text-amber-900 { color: #fbbf24 !important; }
+.dark-mode .annotation .annotation-title { color: #fbbf24 !important; }
+
+.dark-mode .dev-note {
+  background-color: #172554 !important;
+  border-left-color: #1d4ed8 !important;
+}
+.dark-mode .dev-note .text-blue-900 { color: #93c5fd !important; }
+.dark-mode .dev-note .dev-note-title { color: #93c5fd !important; }
+
+/* Email mocks */
+.dark-mode .email-mock {
+  border-color: #334155 !important;
+  background: #1e293b !important;
+}
+.dark-mode .email-mock-header {
+  background: #0f172a !important;
+  border-color: #334155 !important;
+  color: #94a3b8 !important;
+}
+.dark-mode .email-mock-body {
+  color: #e2e8f0 !important;
+}
+
+/* Nav */
+.dark-mode nav.bg-white { background-color: #1e293b !important; }
+
+/* Watermark bar - already dark, leave it */
+
+/* Links - keep teal but brighten slightly */
+.dark-mode a.text-teal-700 { color: #5eead4 !important; }
+.dark-mode .text-teal-700 { color: #5eead4 !important; }
+
+/* Badges */
+.dark-mode .bg-green-100 { background-color: #064e3b !important; }
+.dark-mode .bg-amber-100 { background-color: #422006 !important; }
+.dark-mode .bg-red-100 { background-color: #450a0a !important; }
+.dark-mode .bg-slate-100 { background-color: #1e293b !important; }
+.dark-mode .text-green-800 { color: #6ee7b7 !important; }
+.dark-mode .text-amber-800 { color: #fbbf24 !important; }
