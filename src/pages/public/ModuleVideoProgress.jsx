@@ -43,7 +43,7 @@ export default function ModuleVideoProgress() {
             <button className="bg-teal-600 hover:bg-teal-700 text-white font-bold px-5 py-2.5 rounded-lg transition-colors text-sm">
               Resume Watching
             </button>
-            <p className="text-xs text-amber-700 mt-3">Your progress has been saved at 9:18 / 15:00</p>
+            <p className="text-xs text-amber-700 mt-3">Your progress has been saved at 2:29 / 4:00</p>
           </div>
         </div>
       </div>
@@ -63,20 +63,20 @@ export default function ModuleVideoProgress() {
       </div>
 
       {/* Annotations */}
-      <Annotation title="Tab-Away Detection">
-        How strict should this be? Options: (1) Pause immediately on any tab switch, (2) Allow a 5-second
-        grace period, (3) Just log it but keep playing. Message tone matters - this audience may include
-        people with low digital confidence. "Firm but friendly" is the recommendation.
+      <Annotation title="Tab-Away Behaviour (Agreed)">
+        Video pauses immediately when the user switches tab. NLWA is comfortable with this approach
+        and is not concerned about the small number of users who might attempt to bypass it. The
+        warning message tone should be firm but friendly for users with low digital confidence.
       </Annotation>
 
       <Annotation title="Progress Saving">
-        If a user closes the browser entirely, should they resume where they left off next time? This
+        If a user closes the browser entirely, they should resume where they left off next time. This
         requires server-side progress checkpoints. Recommended: save progress every 30 seconds.
       </Annotation>
 
       <DevNote title="Page Visibility API">
         document.addEventListener('visibilitychange', handler). Detects tab switches and window minimising.
-        Cannot detect screen sharing or picture-in-picture. Define acceptable behaviour for each case.
+        Cannot detect screen sharing or picture-in-picture.
       </DevNote>
 
       {/* Workshop walkthrough link */}

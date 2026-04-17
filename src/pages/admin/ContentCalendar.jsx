@@ -98,20 +98,22 @@ export default function ContentCalendar() {
       </div>
 
       {/* Annotations */}
-      <Annotation title="Content Planning Horizon">
-        How far ahead does NLWA plan module topics? Is there a fixed annual calendar aligned with recycling campaigns, or ad-hoc month by month? Who decides the topics? Aligning with existing NLWA campaigns (e.g. Recycle Week, food waste action week) could amplify impact.
+      <Annotation title="Page to be Merged (Agreed)">
+        Miriam questioned whether a separate content calendar page was needed, noting it duplicates
+        the module list. The group agreed that scheduling (start date, end date, content deadlines)
+        should be brought into the module management view rather than maintained as a separate screen.
+        This page will be removed in the wireframe phase.
       </Annotation>
 
-      <Annotation title="Content Production Timeline">
-        What lead time does NLWA need to produce a video and text content for each module? The calendar assumes a 2-week deadline before publication. Is this realistic? Who is responsible for tracking these deadlines?
+      <Annotation title="Content Production (Note)">
+        NLWA has compiled 14 content ideas for the video modules and delegated production across their
+        team. Some videos will be filmed from scratch; others will build on existing footage. Quiz
+        questions should be written before filming to ensure the video supports the quiz.
       </Annotation>
 
-      <Annotation title="Seasonal Considerations">
-        Some months may have more relevant topics (garden waste in summer, heating/energy in winter). Should the calendar be flexible, or is there value in a predictable schedule that users expect?
-      </Annotation>
-
-      <DevNote title="Calendar/Scheduling System">
-        Module scheduling with auto-publish on set date. Email reminders to admin team when content deadlines approach. Integration with CMS status workflow (Draft, Ready, Scheduled, Published).
+      <DevNote title="Scheduling in Module View">
+        Start date and end date fields on each module. Auto-publish on start date, auto-close on end
+        date. No separate calendar page. Module statuses: Draft, Published, Archived.
       </DevNote>
     </div>
   )

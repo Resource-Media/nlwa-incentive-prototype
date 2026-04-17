@@ -108,12 +108,23 @@ export default function ModuleList() {
       </div>
 
       {/* Annotations */}
-      <Annotation title="Publishing Workflow">
-        What's the content lifecycle? Draft, Review, Scheduled, Published, Archived? Who approves content before it goes live? Is there a preview/staging step? Does NLWA want scheduled publishing (auto-publish on a set date) or manual?
+      <Annotation title="Module Lifecycle (Agreed)">
+        Modules move through Draft, Published and Archived states. Automated scheduling with both a
+        start date and an end date - the end date triggers automatic closure rather than requiring
+        manual intervention. Content can be prepared in advance and published automatically on the
+        start date.
       </Annotation>
 
-      <Annotation title="Module Archiving">
-        When a new module is published, does the previous one automatically archive? Can archived modules be re-published or edited? What about deleting a module entirely?
+      <Annotation title="Archived Modules and Concurrent Draws (Agreed)">
+        Archived modules remain accessible to users for learning (contributing to grand prize
+        eligibility) but users cannot enter expired monthly draws. The platform needs to support two
+        active modules and draws running concurrently for bonus rounds (e.g. Christmas special).
+      </Annotation>
+
+      <Annotation title="Content Calendar Merged (Agreed)">
+        The separate content calendar page is not needed. Scheduling (start date, end date, content
+        deadlines) will be brought into the module management view rather than maintained as a
+        separate screen.
       </Annotation>
 
       <DevNote title="CMS Integration">

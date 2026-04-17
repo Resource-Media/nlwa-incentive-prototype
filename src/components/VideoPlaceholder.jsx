@@ -15,7 +15,7 @@ export default function VideoPlaceholder({ progress = 0, completed = false }) {
             <svg className="w-16 h-16 text-slate-400" fill="currentColor" viewBox="0 0 24 24">
               <path d="M8 5v14l11-7z" />
             </svg>
-            <span className="mt-2 text-slate-500 text-sm font-medium">15:00</span>
+            <span className="mt-2 text-slate-500 text-sm font-medium">4:00</span>
           </>
         )}
       </div>

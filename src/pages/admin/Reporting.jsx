@@ -101,20 +101,28 @@ export default function Reporting() {
       </div>
 
       {/* Annotations */}
-      <Annotation title="Reporting Requirements">
-        These are suggested metrics based on the specification. Which reports does NLWA actually need? Who sees them - just the comms team, or also senior management and councillors? Are there specific KPIs or targets the scheme needs to hit?
+      <Annotation title="Key Metrics (Agreed)">
+        Focus on a small set of key metrics for the pilot: registrations, active users, quiz pass rate,
+        module completion rates, and per-question performance (to identify ambiguous questions or topics
+        that trip users up). Top-line numbers are the most important thing initially.
       </Annotation>
 
-      <Annotation title="Borough-Level Data">
-        Reporting by borough requires accurate postcode-to-borough mapping. Is borough-level participation data important for NLWA? If yes, this strengthens the case for the address verification stretch goal.
+      <Annotation title="Video Analytics via Vimeo (Agreed)">
+        Video drop-off analytics (where users stop watching) are valuable but disproportionate to
+        rebuild in the platform. Vimeo likely offers native viewer retention data. When selecting
+        the video hosting platform, this should be a core required feature rather than a custom build.
       </Annotation>
 
-      <Annotation title="Reporting Frequency">
-        Real-time dashboard, or periodic exports? Monthly reports to stakeholders? Consider: automated email reports to senior management?
+      <Annotation title="Downloadable Reports (Agreed)">
+        Download option confirmed as useful for reporting to senior management over time. TBC whether
+        CSV or PDF (or both) will be sufficient. Borough-level data: include a borough field in the
+        database in preparation for potential expansion, even though all pilot users are Hackney residents.
       </Annotation>
 
       <DevNote title="Analytics Implementation">
-        Options: custom analytics dashboard (charts via Recharts/Chart.js), or integrate with existing analytics tools (Google Analytics, Plausible). Custom gives full control; third-party reduces build effort. Data warehouse for complex queries.
+        Custom analytics dashboard for key platform metrics (charts via Recharts/Chart.js). Video
+        analytics from Vimeo native API rather than rebuilt. Per-question performance reporting
+        needed. Borough field in database for future expansion reporting.
       </DevNote>
     </div>
   )

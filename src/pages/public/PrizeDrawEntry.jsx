@@ -83,28 +83,31 @@ export default function PrizeDrawEntry() {
       </div>
 
       {/* Annotations */}
-      <Annotation title="Gambling Act Compliance">
-        Does this qualify as a "free prize draw" under the Gambling Act 2005? Key test: there must be a
-        genuine free entry route (no purchase required). Since participation only requires watching free
-        content and passing a quiz, this likely qualifies - but NLWA should obtain legal confirmation.
-        Where are T&amp;Cs published?
+      <Annotation title="Prize Draw Process (Agreed)">
+        Winner notification and verification handled personally by NLWA rather than automated through
+        the platform. NLWA will email the winner personally, verify their Hackney postcode, and arrange
+        prize fulfilment offline. This keeps the build simpler and creates an opportunity for in-person
+        engagement and PR - in-person prize handovers with photos for local press (winners asked for
+        consent on a case-by-case basis).
       </Annotation>
 
-      <Annotation title="Draw Transparency">
-        How much transparency about the draw process? Do users see how many people entered? Is the winner
-        announced publicly (first name and borough) or kept private? Past draws section - show winner
-        names or just "winner drawn"?
+      <Annotation title="Bonus Rounds (Agreed)">
+        NLWA wants occasional surprise bonus rounds (e.g. a Christmas special) with a higher prize
+        (perhaps &pound;300) and a shorter entry window, running concurrently with the regular monthly draw.
+        The platform will need to handle two active modules and draws at once.
       </Annotation>
 
-      <Annotation title="Prize Fulfilment">
-        The SoW says prize fulfilment is managed offline by NLWA. What does "offline" mean in practice?
-        Email the winner? Post a voucher? In-person collection? How quickly after the draw?
+      <Annotation title="Grand Prize Draw (Agreed)">
+        End-of-year grand prize draw for users who complete all 12 modules. Late joiners can go back
+        and complete archived modules to qualify. T&amp;Cs need to cover the grace period for winners to
+        respond, bonus round rules, and grand prize eligibility.
       </Annotation>
 
       <DevNote title="Draw Administration">
-        Platform stores eligible entries per month. Admin interface provides: list of eligible
-        participants, random selection tool, winner history. Export to CSV for offline processing. Audit
-        trail for the selection.
+        Platform stores eligible entries per month. Admin interface provides CSV export of eligible
+        participants for NLWA to run the draw offline. No in-platform random selection needed. Track
+        per-user module completion for grand prize eligibility. Support concurrent active draws for
+        bonus rounds.
       </DevNote>
 
       {/* Workshop walkthrough link */}

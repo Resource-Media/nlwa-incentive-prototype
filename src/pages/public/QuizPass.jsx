@@ -81,25 +81,22 @@ export default function QuizPass() {
       </div>
 
       {/* Annotations */}
-      <Annotation title="Pass Mark">
-        What score constitutes a pass? 3/5 (60%), 4/5 (80%), or 5/5 (100%)? Higher pass marks mean more
-        retries and potentially more learning, but could frustrate users. Recommendation: 4/5.
+      <Annotation title="Pass Mark (TBC)">
+        Pass mark to be confirmed. On passing, users are automatically entered into the monthly
+        prize draw. Entry is automatic - no separate opt-in step.
       </Annotation>
 
-      <Annotation title="Prize Draw Entry Mechanism">
-        Is entry automatic on passing, or does the user need to explicitly opt in? Automatic is simpler.
-        An opt-in step adds friction but gives the user a sense of agency. Which approach?
-      </Annotation>
-
-      <Annotation title="Show Correct Answers?">
-        Displaying correct answers on pass is informative. But if we also show them on fail (see next
-        screen), users can memorise and immediately retry. Is that acceptable, or does it undermine the
-        learning goal?
+      <Annotation title="Grand Prize Draw Eligibility (Agreed)">
+        Users who complete all 12 modules across the year will be eligible for an end-of-year grand
+        prize draw with a larger incentive. This gives late joiners a reason to go back and complete
+        earlier modules. Completing an archived module contributes to grand prize eligibility but does
+        not enter the user into that month's expired monthly draw.
       </Annotation>
 
       <DevNote title="Prize Draw Entry">
         Server-side: on quiz pass, create a draw entry record linking user, module, and timestamp. Must
-        be idempotent - passing the same quiz twice shouldn't create duplicate entries.
+        be idempotent - passing the same quiz twice shouldn't create duplicate entries. Track total
+        modules completed per user for grand prize draw eligibility.
       </DevNote>
 
       {/* Workshop walkthrough link */}

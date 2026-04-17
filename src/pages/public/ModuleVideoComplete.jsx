@@ -46,7 +46,7 @@ export default function ModuleVideoComplete() {
           </li>
           <li className="flex items-center gap-2">
             <span className="w-1.5 h-1.5 bg-teal-500 rounded-full" />
-            Pass mark required to enter the draw
+            Pass to enter this month's prize draw
           </li>
         </ul>
         <Link
@@ -65,9 +65,10 @@ export default function ModuleVideoComplete() {
       </div>
 
       {/* Annotations */}
-      <Annotation title="Quiz Instructions">
-        Should we tell users the exact pass mark before they start? (e.g. "You need 4/5 to pass")
-        Or keep it vaguer? Transparency builds trust, but might increase anxiety for less confident users.
+      <Annotation title="Quiz Pass Mark (TBC)">
+        Pass mark to be confirmed. Questions are fixed per module (five multiple-choice) but order is
+        randomised each attempt. Answer order is also randomised. Should the exact pass mark be shown
+        to users before they start?
       </Annotation>
 
       <DevNote title="Completion Verification">

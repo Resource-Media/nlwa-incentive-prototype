@@ -52,8 +52,9 @@ export default function PrizeDrawAdmin() {
           </div>
         </div>
         <button className="bg-teal-600 hover:bg-teal-700 text-white font-semibold px-5 py-2.5 rounded-lg transition-colors text-sm">
-          Close Entries and Select Winner
+          Export Eligible Entries (CSV)
         </button>
+        <p className="text-xs text-slate-500 mt-2">Download the list of eligible participants for NLWA to run the draw offline</p>
       </div>
 
       {/* Eligible Participants */}
@@ -137,20 +138,29 @@ export default function PrizeDrawAdmin() {
       </div>
 
       {/* Annotations */}
-      <Annotation title="Draw Method">
-        Does NLWA want the platform to select the winner (random selection in the system), or do they prefer to export the CSV and run the draw independently? If in-system: do they need an auditable, tamper-evident record of the selection process?
+      <Annotation title="Draw Method (Agreed)">
+        NLWA will run the draw offline using a CSV export of eligible participants from the platform.
+        No in-platform random selection or automated winner notification needed. Miriam noted this is
+        such a small monthly task that building automated functionality would be disproportionate.
       </Annotation>
 
-      <Annotation title="Winner Verification Workflow">
-        Current flow: select winner, email notification, winner replies with address, staff verify postcode, fulfil prize. Is this the right workflow? What if the winner doesn't respond? Automatic fallback to next random selection after 14 days?
+      <Annotation title="Bonus Rounds (Agreed)">
+        NLWA wants occasional surprise bonus rounds (e.g. Christmas special with &pound;300 prize and shorter
+        entry window) running concurrently with the regular monthly draw. The platform needs to handle
+        two active modules and draws at once - this will be factored into the wireframe design.
       </Annotation>
 
-      <Annotation title="Multiple Winners">
-        Is it always one winner per month? Could NLWA want to award multiple smaller prizes in future? The system should be flexible enough to accommodate this.
+      <Annotation title="Grand Prize Draw (Agreed)">
+        End-of-year grand prize draw for users who complete all 12 modules. The user management view
+        and CSV export need to show whether a user has passed all modules to support this. Late joiners
+        can go back, complete archived modules, and still qualify.
       </Annotation>
 
-      <DevNote title="Random Selection">
-        Cryptographically secure random selection (crypto.getRandomValues). Store: selection timestamp, method, seed/proof for audit. Re-selection logic if winner fails verification.
+      <DevNote title="Prize Draw Data">
+        No random selection engine needed. Platform stores eligible entries per month and provides CSV
+        export for NLWA. Winner history can be recorded in the admin interface. Support concurrent
+        active draws. Track per-user total module completion for grand prize eligibility. CSV export
+        should include a grand-prize-eligible flag.
       </DevNote>
     </div>
   )

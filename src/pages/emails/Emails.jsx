@@ -14,11 +14,11 @@ export default function Emails() {
       </div>
 
       {/* Infrastructure DevNote */}
-      <DevNote title="Email Infrastructure">
-        All transactional emails sent via SendGrid, Postmark, or Mailgun (to be decided in discovery).
-        Emails must be tested across Gmail, Outlook, Apple Mail, and mobile clients. DKIM/SPF/DMARC
-        authentication required for deliverability. Templates designed responsive (HTML email, not just
-        plain text).
+      <DevNote title="Email Infrastructure (Agreed)">
+        Simple SMTP service for automated platform messages only (registration confirmation, draw entry
+        confirmation). Entirely separate from NLWA's Campaign Monitor account which handles marketing
+        and promotional emails. DKIM/SPF/DMARC authentication required for deliverability. Platform
+        will sit on a subdomain of nlwa.gov.uk - NLWA IT team (Nick) handles DNS configuration.
       </DevNote>
 
       {/* ============================================================ */}
@@ -99,10 +99,11 @@ export default function Emails() {
           </div>
         </EmailMock>
 
-        <Annotation title="Reminder Timing and Frequency">
-          When does this go out? Day 1 of the month? How many reminders - one initial, plus a follow-up
-          if they haven't started? A "last chance" reminder near the draw deadline? Balance engagement
-          against inbox fatigue.
+        <Annotation title="Reminders via Campaign Monitor (Agreed)">
+          Monthly reminders and re-engagement emails will be handled through NLWA's existing Campaign
+          Monitor account, not through the platform's transactional email system. The platform only
+          sends automated system messages (registration, draw entry confirmation). Campaign Monitor
+          sequences should also prompt new sign-ups about the back-catalogue and grand prize eligibility.
         </Annotation>
       </section>
 
@@ -179,10 +180,10 @@ export default function Emails() {
           </div>
         </EmailMock>
 
-        <Annotation title="Email on Failure?">
-          Should the platform email users when they fail a quiz? Could be seen as encouraging ("have
-          another go!") or as nagging. Recommendation: only email on pass. Show retry options on-screen
-          instead.
+        <Annotation title="Email on Failure - Not Needed (Agreed)">
+          No email sent on quiz failure. Retry options shown on-screen instead. The platform only sends
+          automated emails for: registration confirmation and quiz pass/draw entry confirmation. Winner
+          notification is handled manually by NLWA, and reminders/re-engagement go through Campaign Monitor.
         </Annotation>
       </section>
 
@@ -191,46 +192,13 @@ export default function Emails() {
       {/* ============================================================ */}
       <section className="mb-12">
         <h2 className="text-lg font-bold text-slate-700 mb-1">C5. Prize Winner Notification</h2>
-        <p className="text-sm text-slate-400 mb-4">Sent to the selected prize draw winner</p>
+        <p className="text-sm text-amber-600 mb-4 font-medium">Not a platform email - handled manually by NLWA staff</p>
 
-        <EmailMock subject="You've won the NLWA April Prize Draw!" from="NLWA Learning <noreply@recycle.nlwa.gov.uk>">
-          <p className="mb-4">Dear Sarah,</p>
-
-          <p className="mb-4">
-            Congratulations! You've been selected as the winner of the April 2026 NLWA Learning Prize Draw!
-          </p>
-
-          <p className="mb-4">
-            <strong>Your prize:</strong> &pound;250 grocery voucher
-          </p>
-
-          <p className="mb-4">
-            To claim your prize, we need to verify your address is within the NLWA area. Please reply to
-            this email with your full address, or click the button below:
-          </p>
-
-          {/* Mock CTA */}
-          <div className="text-center my-6">
-            <span className="inline-block bg-teal-600 text-white font-bold px-8 py-3 rounded-lg cursor-default">
-              Verify My Address
-            </span>
-          </div>
-
-          <p className="mb-4">
-            Please respond within 14 days. If we don't hear from you, an alternative winner will be selected.
-          </p>
-
-          <p className="mb-4">
-            Thank you for taking part in the NLWA Learning scheme. Your engagement helps improve recycling
-            across North London.
-          </p>
-
-          <p className="mb-6">NLWA Learning Team</p>
-
-          <div className="border-t border-slate-200 pt-4 text-xs text-slate-400">
-            North London Waste Authority | Unit 1b, Berol House, 25 Ashley Road, London N17 9LJ
-          </div>
-        </EmailMock>
+        <div className="bg-amber-50 border border-amber-200 rounded-lg p-6 text-sm text-amber-800">
+          Winner notification and verification is handled personally by NLWA, not through the platform.
+          NLWA will email the winner directly, verify their Hackney postcode, and arrange prize fulfilment
+          offline. This keeps the build simpler and creates an opportunity for in-person engagement and PR.
+        </div>
       </section>
 
       {/* ============================================================ */}
@@ -238,60 +206,36 @@ export default function Emails() {
       {/* ============================================================ */}
       <section className="mb-12">
         <h2 className="text-lg font-bold text-slate-700 mb-1">C6. Re-engagement / Missed Module</h2>
-        <p className="text-sm text-slate-400 mb-4">Sent to users who haven't engaged recently</p>
+        <p className="text-sm text-amber-600 mb-4 font-medium">Not a platform email - handled via NLWA's Campaign Monitor</p>
 
-        <EmailMock subject="You missed March's module - it's still available" from="NLWA Learning <noreply@recycle.nlwa.gov.uk>">
-          <p className="mb-4">Hi Sarah,</p>
-
-          <p className="mb-4">
-            We noticed you haven't completed March's learning module yet - <strong>Recycling Right: What
-            Goes Where</strong>.
-          </p>
-
-          <p className="mb-4">
-            The good news: past modules are still available, so you can catch up any time.
-          </p>
-
-          {/* Mock CTA */}
-          <div className="text-center my-6">
-            <span className="inline-block bg-teal-600 text-white font-bold px-8 py-3 rounded-lg cursor-default">
-              Catch Up Now
-            </span>
-          </div>
-
-          <p className="mb-4">
-            And don't forget - April's module is live too. Pass the quiz before 30 April to enter this
-            month's prize draw!
-          </p>
-
-          <p className="mb-6">The NLWA Learning Team</p>
-
-          <div className="border-t border-slate-200 pt-4 text-xs text-slate-400">
-            North London Waste Authority | Unit 1b, Berol House, 25 Ashley Road, London N17 9LJ
-            <br />
-            <span className="underline cursor-default">Unsubscribe</span> from these emails
-          </div>
-        </EmailMock>
-
-        <Annotation title="Re-engagement Strategy">
-          How aggressive should re-engagement be? One missed-module email per month? After how many months
-          of inactivity do we stop emailing? Is there a "win-back" campaign for completely lapsed users?
-          Consider: GDPR soft opt-in rules for marketing-style emails.
-        </Annotation>
+        <div className="bg-amber-50 border border-amber-200 rounded-lg p-6 text-sm text-amber-800">
+          Monthly reminders and re-engagement emails will be handled through NLWA's existing Campaign
+          Monitor account. Campaign Monitor sequences should prompt new sign-ups about the back-catalogue
+          of modules and grand prize draw eligibility. The platform provides the user data (via CSV
+          export) but does not send marketing or re-engagement emails.
+        </div>
       </section>
 
       {/* ============================================================ */}
       {/* Overall Email Annotations */}
       {/* ============================================================ */}
-      <Annotation title="Email Branding">
-        Should emails carry NLWA branding (logo, colours) or be plain text for better deliverability?
-        HTML emails with images are more engaging but more work to maintain and test.
+      <Annotation title="Platform vs Campaign Monitor Emails (Agreed)">
+        The platform sends only transactional system messages: registration confirmation and quiz
+        pass/draw entry confirmation. These are exempt from unsubscribe requirements. All
+        marketing/promotional emails (monthly reminders, re-engagement, winner announcements) go
+        through NLWA's Campaign Monitor account and must include unsubscribe links.
       </Annotation>
 
-      <Annotation title="Unsubscribe Handling">
-        Legal requirement: every marketing/promotional email needs an unsubscribe link. Transactional
-        emails (registration, winner notification) are exempt. Which of these emails count as
-        promotional?
+      <Annotation title="Winner Notification (Agreed)">
+        Winner notification is handled manually by NLWA staff, not as an automated platform email.
+        The C5 template above is for reference only - NLWA will send this personally. The C6
+        re-engagement email is also a Campaign Monitor task, not a platform feature.
+      </Annotation>
+
+      <Annotation title="User Feedback (Agreed - Session 2)">
+        A lightweight "report a problem" button on the video and quiz pages was agreed in Session 2.
+        Not a full satisfaction survey - just a way to surface technical issues, ambiguous questions
+        or confusing content. Only build if development effort is modest; defer if complex.
       </Annotation>
     </div>
   )

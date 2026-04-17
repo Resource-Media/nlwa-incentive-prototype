@@ -39,24 +39,12 @@ export default function QuizFail() {
         <h2 className="text-lg font-bold text-slate-800 mb-4">Question Review</h2>
         <div className="space-y-3">
           {questions.map((q) => (
-            <details key={q.num} className="bg-white rounded-lg shadow-sm border border-slate-200 group">
-              <summary className="p-4 cursor-pointer flex items-center gap-3 list-none [&::-webkit-details-marker]:hidden">
-                <span className={`flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center text-sm font-bold text-white ${q.correct ? 'bg-green-500' : 'bg-red-400'}`}>
-                  {q.correct ? '\u2713' : '\u2717'}
-                </span>
-                <span className="font-medium text-slate-700">Q{q.num}: {q.correct ? 'Correct' : 'Incorrect'}</span>
-                <span className="ml-auto text-slate-400 text-xs group-open:rotate-180 transition-transform">&#9660;</span>
-              </summary>
-              <div className="px-4 pb-4 border-t border-slate-100 pt-3 text-sm">
-                <p className="text-slate-600 mb-2">{q.label}</p>
-                <p className={q.correct ? 'text-green-700' : 'text-red-600'}>
-                  <span className="font-medium">Your answer:</span> {q.userAnswer}
-                </p>
-                {!q.correct && (
-                  <p className="text-green-700 mt-1"><span className="font-medium">Correct answer:</span> {q.correctAnswer}</p>
-                )}
-              </div>
-            </details>
+            <div key={q.num} className="bg-white rounded-lg shadow-sm border border-slate-200 p-4 flex items-center gap-3">
+              <span className={`flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center text-sm font-bold text-white ${q.correct ? 'bg-green-500' : 'bg-red-400'}`}>
+                {q.correct ? '\u2713' : '\u2717'}
+              </span>
+              <span className="font-medium text-slate-700">Q{q.num}: {q.correct ? 'Correct' : 'Incorrect'}</span>
+            </div>
           ))}
         </div>
       </div>
@@ -90,26 +78,21 @@ export default function QuizFail() {
       </div>
 
       {/* Annotations */}
-      <Annotation title="Retry Policy">
-        Can users retry immediately, or must they re-watch/re-read the content first? Immediate retry is
-        more convenient but users might just memorise answers. Requiring content review reinforces
-        learning but adds friction. Unlimited retries, or a maximum number of attempts?
+      <Annotation title="Retry Policy (Agreed)">
+        Users can retake the quiz immediately without re-watching the video. Unlimited retries. Combined
+        with correct answers being hidden on failure, users are encouraged to re-engage with the content
+        to improve rather than simply memorising answers.
       </Annotation>
 
-      <Annotation title="Showing Correct Answers on Fail">
-        If correct answers are shown, users can memorise them and pass on the next attempt without
-        engaging with the content. If hidden, users must actually re-learn. Which serves the educational
-        goal better?
-      </Annotation>
-
-      <Annotation title="Fail Notifications">
-        Do we send an email when a user fails? Could be encouraging ("almost there!") or could feel like
-        nagging. Recommendation: only email on pass/draw entry.
+      <Annotation title="Correct Answers Hidden (Agreed)">
+        Correct answers are not shown on failure. The team agreed this prevents users from memorising
+        answers and retrying immediately without learning. Users see their score and which questions
+        they got wrong, but not the correct answers.
       </Annotation>
 
       <DevNote title="Retry Logic">
-        Track attempt count per user per module. If requiring content re-view before retry, reset the
-        video/text completion flag on quiz failure. Business rule: define max retries (or unlimited).
+        Unlimited retries allowed. Track attempt count per user per module for reporting purposes.
+        No need to reset video completion on quiz failure since immediate retry is permitted.
       </DevNote>
 
       {/* Workshop walkthrough link */}

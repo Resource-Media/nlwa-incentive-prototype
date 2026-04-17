@@ -77,24 +77,28 @@ export default function Quiz() {
       </div>
 
       {/* Annotations */}
-      <Annotation title="Quiz Navigation">
-        Can users go back and change previous answers? Allowing it is more user-friendly but adds UI
-        complexity. Is there a time limit per question or for the whole quiz?
+      <Annotation title="Quiz Design (Agreed)">
+        Five fixed multiple-choice questions per module. Pass mark TBC. Question order and answer order
+        are both randomised every attempt. Questions are fixed per module (not drawn from a pool).
+        Sophia confirmed five questions will be kept consistent to simplify the briefing to content
+        creators. Quiz questions should be written before filming the video.
       </Annotation>
 
-      <Annotation title="Question Randomisation">
-        Are questions fixed (same 5 every time) or drawn randomly from a larger pool? Fixed is simpler
-        to author. Random prevents users sharing answers but requires more content creation per module.
+      <Annotation title="Correct Answers Not Shown (Agreed)">
+        Correct answers will not be shown on failure. The team agreed this prevents users from simply
+        memorising answers and retrying immediately. Users must re-engage with the content to improve.
       </Annotation>
 
-      <Annotation title="Quiz Attempt Tracking">
-        If a user fails and retries, do they get the same questions or different ones? Does the system
-        track attempts?
+      <Annotation title="Immediate Retry Allowed (Agreed)">
+        Users can retake the quiz immediately without re-watching the video. Unlimited retries.
+        Combined with hidden correct answers, this still encourages genuine learning.
       </Annotation>
 
       <DevNote title="Quiz Engine">
         Server-side quiz evaluation. Questions and correct answers stored in CMS, never sent to the
-        client before submission. Prevents answer inspection via dev tools.
+        client before submission. Randomise both question order and answer order on each attempt.
+        Optional image field per question (Sophia would like the option to include images, e.g.
+        referencing something from the video).
       </DevNote>
 
       {/* Workshop walkthrough link */}

@@ -9,8 +9,8 @@ export default function Home() {
       <div className="bg-teal-700 text-white -mx-4 -mt-8 px-4 py-16 mb-10 text-center">
         <h1 className="text-4xl font-bold mb-4">Learn About Recycling. Win Prizes.</h1>
         <p className="text-lg text-teal-100 max-w-2xl mx-auto leading-relaxed">
-          Residents in North London can watch monthly educational videos about waste and recycling,
-          take a short quiz, and be entered into a prize draw for a <strong className="text-white">£250 grocery voucher</strong>.
+          Residents in the London Borough of Hackney can watch short monthly educational videos about
+          waste and recycling, take a quick quiz, and be entered into a prize draw for a <strong className="text-white">£250 grocery voucher</strong>.
         </p>
       </div>
 
@@ -21,7 +21,7 @@ export default function Home() {
           <div className="bg-white rounded-lg shadow-sm border border-slate-200 p-6 text-center">
             <div className="text-3xl mb-3">📺</div>
             <h3 className="font-bold text-teal-700 mb-2">1. Watch</h3>
-            <p className="text-sm text-slate-600">Watch a short educational video about waste and recycling in North London</p>
+            <p className="text-sm text-slate-600">Watch a short educational video (3-5 minutes) about waste and recycling</p>
           </div>
           <div className="bg-white rounded-lg shadow-sm border border-slate-200 p-6 text-center">
             <div className="text-3xl mb-3">📖</div>
@@ -71,27 +71,43 @@ export default function Home() {
       <section className="mb-12">
         <div className="bg-slate-100 rounded-lg p-6 text-center">
           <p className="text-sm text-slate-600">
-            <strong className="text-slate-700">This programme is for residents of</strong>{' '}
-            Barnet, Camden, Enfield, Hackney, Haringey, Islington and Waltham Forest.
+            <strong className="text-slate-700">This programme is for residents of the London Borough of Hackney.</strong>{' '}
+            You will be asked to confirm your eligibility when you register.
           </p>
         </div>
       </section>
 
       {/* Annotations */}
-      <Annotation title="Promotional Strategy">
-        How will residents discover this page? Social media campaigns, borough council websites,
-        housing association newsletters, printed materials in recycling centres? What is the ongoing
-        promotional plan beyond launch?
+      <Annotation title="Trial Scope (Agreed)">
+        Year-long trial focused on the London Borough of Hackney, starting early October. NLWA will
+        focus additional promotional effort on one specific collection round - mid-to-low performing,
+        likely flat estates. Sophia has a call with Hackney council in early May to confirm the target round.
       </Annotation>
 
-      <Annotation title="Landing Page vs. NLWA Website">
-        Should this be a standalone site (e.g. recycle.nlwa.gov.uk) or embedded within the existing
-        NLWA website? Current plan is standalone - confirm.
+      <Annotation title="Promotion Approach (Agreed)">
+        Borough-wide messaging through social media, leafleting, and Hackney council's own channels.
+        The target collection round will receive additional door-to-door leafleting and more targeted
+        social media ads. In-person roadshow or event in the target area is being considered.
+      </Annotation>
+
+      <Annotation title="Success Targets (Open)">
+        Not yet defined. Sophia will revisit an earlier comms plan and set targets. Evaluation metrics
+        agreed: recycling tonnage (borough-wide and for the target round), number of sign-ups, monthly
+        participation and retention rates, and digital engagement metrics including social media and
+        platform visits.
+      </Annotation>
+
+      <Annotation title="Campaign Naming (Open)">
+        Working name "Bin Bonanza" will be replaced. NLWA is planning a naming session. The name needs
+        to be memorable, versatile (not borough-specific), and capable of scaling to a North London-wide
+        campaign if the trial succeeds. Tone: fun, colourful, relatable - similar to the existing
+        "Together We Recycle" campaign branding.
       </Annotation>
 
       <DevNote title="SEO and Analytics">
-        Google Analytics or similar to be integrated. Consider meta tags, Open Graph for social sharing.
-        Cookie consent banner needed for UK compliance.
+        Plan is for the platform to sit on a subdomain of nlwa.gov.uk. DNS configuration will need
+        to be arranged with the NLWA IT team. Google Analytics or similar to be integrated. Cookie
+        consent banner needed for UK compliance.
       </DevNote>
 
       {/* Workshop walkthrough link */}

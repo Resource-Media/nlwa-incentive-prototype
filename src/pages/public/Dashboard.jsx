@@ -94,25 +94,23 @@ export default function Dashboard() {
       </section>
 
       {/* Annotations */}
-      <Annotation title="Archive Access Policy">
-        Can users still complete past modules they missed? If so, can they enter the prize draw for
-        archived months, or only the current one? This affects user motivation and the simplicity of
-        the prize draw administration.
+      <Annotation title="Archived Module Access (Agreed)">
+        Archived modules remain accessible to users for learning purposes. Completing an archived module
+        does not enter the user into that month's expired prize draw. However, completing all 12 modules
+        qualifies the user for the end-of-year grand prize draw - giving late joiners a reason to
+        catch up on earlier content.
       </Annotation>
 
-      <Annotation title="Re-engagement Strategy">
-        What brings users back each month? Options: monthly email reminder, push notifications
-        (requires app/PWA), social media prompts. How prominent should the archive be vs. the current module?
-      </Annotation>
-
-      <Annotation title="User Progress Display">
-        Is a streak counter motivating for this audience? What about a "learning journey" visualisation?
-        Keep it simple for launch or invest in gamification?
+      <Annotation title="Re-engagement via Campaign Monitor (Agreed)">
+        Monthly email prompts and re-engagement messaging will be handled through NLWA's existing
+        Campaign Monitor account. New sign-ups should be prompted about the back-catalogue of modules
+        and grand prize draw eligibility. This is a marketing/comms task, not a platform build feature.
       </Annotation>
 
       <DevNote title="Progress Tracking">
         Server-side progress tracking per user per module. States: not started, video in progress,
-        video complete, quiz attempted, quiz passed, draw entered. Database schema needed.
+        video complete, quiz attempted, quiz passed, draw entered. Track total modules completed per
+        user for grand prize draw eligibility. Database includes borough field for future expansion.
       </DevNote>
 
       {/* Workshop walkthrough link */}

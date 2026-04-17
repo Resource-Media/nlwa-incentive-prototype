@@ -155,33 +155,18 @@ export default function ModuleText() {
       </div>
 
       {/* Annotations */}
-      <Annotation title="Text Content Creation">
-        Who creates the text alternative? Is it a transcript of the video, or separately authored
-        content covering the same topics? Transcripts are cheaper but may not read as well. Custom
-        text content is better but doubles the content creation workload for NLWA.
+      <Annotation title="Pilot Accessibility Approach (Agreed)">
+        For the pilot, the platform will not build a full parallel text content path. Instead, users
+        who cannot watch video will be offered a "contact us" option, with NLWA providing the
+        information in an alternative format on request. NLWA's existing website relies on subtitles
+        and audio description for video accessibility. The WCAG implications of gating the quiz behind
+        video need further investigation (action: Miriam/Sophia before wireframe phase).
       </Annotation>
 
-      <Annotation title="Accessible Pathway Parity">
-        WCAG requires equivalent access. The text version must cover the same learning content as the
-        video, and users must be able to complete the same quiz. But does it need to be the exact same
-        information, or can it complement the video?
-      </Annotation>
-
-      <Annotation title="Content Format">
-        Cards with expand/collapse? Scrolling long-form? Paginated like slides? The format affects how
-        we track "completion" - is it reading all sections, or just reaching the bottom? Consider users
-        who skim.
-      </Annotation>
-
-      <DevNote title="Text Content CMS">
-        Admin interface needs a rich text editor for each section of the text alternative. Support for
-        images, headings, lists. Consider a structured content approach (like Sanity) vs. a single rich
-        text field.
-      </DevNote>
-
-      <DevNote title="Completion Tracking">
-        Track which sections the user has expanded/visited. Only unlock quiz when all sections marked
-        as read. Server-side verification same as video path.
+      <DevNote title="Text Path Deferred">
+        Full text alternative path deferred for pilot. This page represents a potential future feature.
+        For launch, the video page will include a "contact us" link for users who need an alternative
+        format. This significantly reduces the build scope.
       </DevNote>
 
       {/* Workshop walkthrough link */}

@@ -49,20 +49,17 @@ export default function EmailConfirm() {
       </div>
 
       {/* Annotations */}
-      <Annotation title="Email Sender Identity">
-        What sender name and email address? "NLWA Learning" from recycle.nlwa.gov.uk? This needs to be
-        set up with the email provider and DNS records. Also - what does the welcome experience include?
-        Any onboarding content or tips?
+      <Annotation title="Sender Identity (Agreed)">
+        Plan is for the platform to sit on a subdomain of nlwa.gov.uk. DNS configuration (SPF, DKIM,
+        DMARC records) will need to be arranged with the NLWA IT team. Establishing the email channel
+        early (through registration confirmation) helps users recognise and whitelist the sender -
+        reducing spam folder risk for later draw entry and notification emails.
       </Annotation>
 
-      <Annotation title="Email Deliverability">
-        Transactional emails sometimes land in spam, especially for new domains. Consider: SPF/DKIM/DMARC
-        records, warm-up period for new sending domain, and a "check your spam" message on this screen.
-      </Annotation>
-
-      <DevNote title="Email Service">
-        Transactional email via SendGrid, Postmark, or Mailgun. Templates need to be designed and tested
-        across email clients (Gmail, Outlook, Apple Mail). Email service costs are borne by NLWA.
+      <DevNote title="Email Infrastructure (Agreed)">
+        Simple SMTP service for automated platform messages (registration confirmation, draw entry
+        confirmation, etc.) - entirely separate from NLWA's Campaign Monitor setup for marketing emails.
+        Campaign Monitor continues to handle promotional communications. SPF/DKIM/DMARC setup needed.
       </DevNote>
 
       {/* Workshop walkthrough link */}

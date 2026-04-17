@@ -57,31 +57,43 @@ export default function ModuleVideo() {
       </div>
 
       {/* Annotations */}
-      <Annotation title="Video Gating Strategy">
-        How strictly do we enforce video completion? Options: (1) Track to 90%+ watched, (2) Require
-        reaching the final frame, (3) Just require they press play and wait the duration. Determined
-        users could bypass any client-side control with dev tools. What level of enforcement is acceptable?
+      <Annotation title="Video Gating (Agreed)">
+        Video pauses if the user navigates to another tab. Sophia and Miriam are comfortable with this
+        level of enforcement and are not concerned about the small number of users who might use browser
+        extensions to bypass it. After completing the first full viewing, users should ideally be able to
+        scrub to specific segments rather than re-watching from the start (stretch goal - not essential).
       </Annotation>
 
-      <Annotation title="Video Length and Format">
-        Current scope: maximum 15 minutes per module. Sophia mentioned repurposing existing NLWA videos
-        - what aspect ratios do these come in? Landscape, portrait, square? The player needs to handle
-        all formats gracefully.
+      <Annotation title="Video Length (Agreed)">
+        Revised down from 15 minutes to around 3-5 minutes, informed by NLWA's Together We Recycle
+        campaign where videos ran to roughly two and a half minutes. Landscape format preferred. Some
+        portrait footage exists but can be letterboxed in post-production.
       </Annotation>
 
-      <Annotation title="Content Accessibility">
-        WCAG 2.2 AA requires captions/subtitles on video content. Who provides these? Auto-generated,
-        or professionally captioned? This is a legal requirement for public sector bodies.
+      <Annotation title="Captions and Accessibility (Agreed)">
+        Captions will be embedded in the video files by NLWA as part of their production process.
+        No toggle needed on the platform. For the pilot, users who cannot watch video will be offered
+        a "contact us" option, with NLWA providing information in an alternative format on request -
+        rather than building a full parallel text content path.
+      </Annotation>
+
+      <Annotation title="Feedback Mechanism (Agreed)">
+        A lightweight "report a problem" button should appear on this page and the quiz page. Not a
+        satisfaction survey - just a way for users to flag technical issues, ambiguous content, or
+        confusion. Only build if development effort is modest; defer if complex.
       </Annotation>
 
       <DevNote title="Video Player">
-        Custom React component wrapping Mux or Vimeo player. Must: disable seeking, track progress
-        server-side, detect tab-away via Page Visibility API. Most complex frontend component in the build.
+        Custom React component wrapping Vimeo player (most likely platform - Chloe investigating,
+        Miriam to ask Federico for recommendations). Must: disable seeking on first watch, track
+        progress server-side, detect tab-away via Page Visibility API. Allow scrubbing after first
+        completion (stretch goal).
       </DevNote>
 
-      <DevNote title="Video Streaming">
-        Mux or Vimeo Pro for adaptive bitrate delivery. API costs borne by NLWA. Choice affects player
-        implementation significantly.
+      <DevNote title="Video Analytics (Stretch)">
+        Video drop-off points, most-replayed segments, completion rates - valuable for content
+        improvement but agreed as a stretch goal. Vimeo likely offers native viewer retention data.
+        The group agreed it would be disproportionate to rebuild video analytics in the platform.
       </DevNote>
 
       {/* Workshop walkthrough link */}

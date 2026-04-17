@@ -36,20 +36,16 @@ export default function Register() {
             />
           </div>
 
-          {/* Postcode */}
-          <div className="mb-5">
-            <label className="block text-sm font-medium text-slate-700 mb-1">Postcode</label>
-            <input
-              type="text"
-              placeholder="N7 8QJ"
-              className="w-full border border-slate-300 rounded-lg px-4 py-2.5 text-slate-700 bg-slate-50 focus:outline-none focus:ring-2 focus:ring-teal-500"
-              readOnly
-            />
-            <p className="text-xs text-slate-400 mt-1">We'll use this to confirm you live in the NLWA area</p>
-          </div>
-
           {/* Consent checkboxes */}
-          <div className="mb-5 space-y-3">
+          <div className="mb-6 space-y-3">
+            <label className="flex items-start gap-2 text-sm text-slate-600 cursor-pointer">
+              <input type="checkbox" className="mt-1 accent-teal-600" defaultChecked readOnly />
+              <span>I live in the London Borough of Hackney</span>
+            </label>
+            <label className="flex items-start gap-2 text-sm text-slate-600 cursor-pointer">
+              <input type="checkbox" className="mt-1 accent-teal-600" defaultChecked readOnly />
+              <span>I am 18 years of age or over</span>
+            </label>
             <label className="flex items-start gap-2 text-sm text-slate-600 cursor-pointer">
               <input type="checkbox" className="mt-1 accent-teal-600" defaultChecked readOnly />
               <span>I agree to the <a href="#" className="text-teal-600 underline">Terms and Conditions</a></span>
@@ -60,58 +56,14 @@ export default function Register() {
             </label>
           </div>
 
-          {/* Registration Options */}
-          <div className="border border-slate-200 rounded-lg p-6 bg-slate-50">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {/* Option A - Magic Link */}
-              <div className="text-center">
-                <h3 className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3">Option A</h3>
-                <Link
-                  to="/public/email-confirm"
-                  className="block bg-teal-600 hover:bg-teal-700 text-white font-bold px-6 py-3 rounded-lg transition-colors mb-2"
-                >
-                  Send me a magic link
-                </Link>
-                <p className="text-xs text-slate-500">We'll email you a sign-in link - no password needed</p>
-              </div>
-
-              {/* Divider */}
-              <div className="hidden md:flex items-center absolute left-1/2 top-0 bottom-0 -translate-x-1/2">
-                {/* Vertical divider only visible on md+ handled by the border below */}
-              </div>
-
-              {/* Option B - Password */}
-              <div className="text-center border-t md:border-t-0 md:border-l border-slate-200 pt-6 md:pt-0 md:pl-6">
-                <h3 className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3">Option B</h3>
-                <button
-                  className="block w-full border-2 border-teal-600 text-teal-600 hover:bg-teal-50 font-bold px-6 py-3 rounded-lg transition-colors mb-3 cursor-default"
-                >
-                  Create with password
-                </button>
-                <div className="space-y-2">
-                  <input
-                    type="password"
-                    placeholder="Password"
-                    className="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm bg-white focus:outline-none"
-                    readOnly
-                  />
-                  <input
-                    type="password"
-                    placeholder="Confirm password"
-                    className="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm bg-white focus:outline-none"
-                    readOnly
-                  />
-                </div>
-              </div>
-            </div>
-
-            {/* Or divider for mobile */}
-            <div className="flex items-center my-4 md:hidden">
-              <div className="flex-1 border-t border-slate-300"></div>
-              <span className="px-3 text-xs text-slate-400 font-medium">or</span>
-              <div className="flex-1 border-t border-slate-300"></div>
-            </div>
-          </div>
+          {/* Sign-in link button */}
+          <Link
+            to="/public/email-confirm"
+            className="block w-full bg-teal-600 hover:bg-teal-700 text-white font-bold px-6 py-3 rounded-lg transition-colors text-center mb-2"
+          >
+            Send me a one-time sign-in link
+          </Link>
+          <p className="text-xs text-slate-500 text-center">We'll email you a link to sign in - no password needed</p>
         </div>
 
         {/* Sign-in link */}
@@ -123,32 +75,39 @@ export default function Register() {
 
       {/* Annotations */}
       <div className="mt-10">
-        <Annotation title="Registration Friction vs Data Collection">
-          How much information do we need at registration? Name + email is minimum. Postcode could
-          be deferred to prize claim stage. Each additional field reduces conversion rates - what's
-          the acceptable trade-off?
+        <Annotation title="Registration Approach (Agreed)">
+          Magic links agreed as the sign-in method. No passwords. Messaging should avoid the term
+          "magic link" and use plain language instead (e.g. "send me a one-time sign-in link"). Fields:
+          name and email only. No postcode collected at sign-up - verified only when contacting a
+          prize draw winner.
         </Annotation>
 
-        <Annotation title="Magic Links vs Passwords">
-          Magic links (passwordless) reduce friction for users with low digital confidence - they just
-          click a link in their email. But they require a valid, accessible email account. Do we offer
-          both options, or choose one? Recommendation: magic links as default, password as fallback.
+        <Annotation title="Hackney-only Access (Agreed)">
+          A self-declaration tick box ("I live in the borough of Hackney") will be included at
+          registration. Non-Hackney residents will be blocked from registering. This avoids skewing
+          participation data and keeps the trial focused.
         </Annotation>
 
-        <Annotation title="Postcode Verification Timing">
-          Current thinking: collect postcode at registration for reporting, but only verify residency
-          when a user wins the prize draw. This reduces friction. Alternative: verify at registration
-          and block non-NLWA residents. Which approach?
+        <Annotation title="Age Restriction (Agreed)">
+          Entrants must be 18 or over for the prize draw. A confirmation will be added to the
+          registration process.
+        </Annotation>
+
+        <Annotation title="Email as Long-term Asset (Note)">
+          A successful scheme could build a substantial email list of engaged Hackney residents -
+          valuable for future campaigns beyond the trial. NLWA should consider what the sign-up consent
+          covers in terms of future communications.
         </Annotation>
 
         <DevNote title="Authentication System">
-          Auth.js (NextAuth v5) with magic link provider + optional credentials provider. Requires
-          transactional email service (SendGrid/Postmark). Session management via encrypted cookies or JWT.
+          Magic link provider only (no password/credentials). Plain language on buttons and emails.
+          Transactional email via simple SMTP service (separate from NLWA's Campaign Monitor).
+          Session management via encrypted cookies or JWT.
         </DevNote>
 
-        <DevNote title="Postcode Validation">
-          Simple lookup against maintained NLWA postcode list. Stretch goal: full address-to-borough
-          API (Ideal Postcodes). Edge cases where postcodes straddle borough boundaries.
+        <DevNote title="Eligibility Checks">
+          No postcode at sign-up. Self-declaration tick box for Hackney residency. Age confirmation
+          (18+) checkbox. Postcode verified offline by NLWA only when contacting a prize draw winner.
         </DevNote>
       </div>
 

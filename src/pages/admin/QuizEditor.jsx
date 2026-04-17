@@ -52,18 +52,14 @@ export default function QuizEditor() {
         <div className="flex flex-wrap items-center gap-6">
           <div>
             <label className="text-sm text-slate-600 mr-2">Pass mark:</label>
-            <select defaultValue="4 out of 5" className="border border-slate-300 rounded-lg px-3 py-2 text-sm bg-white text-slate-800">
+            <select defaultValue="TBC" className="border border-slate-300 rounded-lg px-3 py-2 text-sm bg-white text-slate-800">
               <option>3 out of 5</option>
               <option>4 out of 5</option>
               <option>5 out of 5</option>
             </select>
           </div>
           <div className="flex items-center gap-2">
-            <label className="text-sm text-slate-600">Randomise question order</label>
-            <div className="w-10 h-5 bg-slate-300 rounded-full relative">
-              <div className="w-4 h-4 bg-white rounded-full absolute top-0.5 left-0.5 shadow"></div>
-            </div>
-            <span className="text-xs text-slate-400">Off</span>
+            <span className="text-sm text-slate-500">Question and answer order randomised automatically</span>
           </div>
         </div>
       </div>
@@ -134,16 +130,26 @@ export default function QuizEditor() {
       </div>
 
       {/* Annotations */}
-      <Annotation title="Quiz Authorship">
-        Who writes the quiz questions? NLWA comms team, subject matter experts, or Resource Media? Is there a review/approval step before the quiz goes live with the module?
+      <Annotation title="Quiz Format (Agreed)">
+        Multiple choice confirmed as the quiz format. Free-text questions were explored and ruled out
+        due to challenges with misspellings, verbose answers and ambiguous matching. Five fixed
+        questions per module, consistent across modules to simplify the briefing to content creators.
       </Annotation>
 
-      <Annotation title="Question Pool vs Fixed">
-        Current design: exactly 5 fixed questions per module. Alternative: a pool of 10-15 questions, with 5 drawn randomly per attempt. Pools prevent answer-sharing but require 2-3x more content creation. Which approach?
+      <Annotation title="Always-on Randomisation (Agreed)">
+        The randomisation toggle should be removed. Both question order and answer order will always
+        be randomised by default on every attempt. This is not a per-quiz setting.
+      </Annotation>
+
+      <Annotation title="Image Support (Agreed)">
+        Sophia would like the option to include an image alongside a quiz question (e.g. referencing
+        something from the video). This is straightforward to add if the CMS makes it easy.
       </Annotation>
 
       <DevNote title="Quiz Data Model">
-        Each quiz belongs to one module. Questions: text, 4 options (a-d), correct answer, optional explanation. Pass mark configurable per quiz. Consider: question ordering, answer shuffling.
+        Each quiz belongs to one module. Questions: text, 4 options (a-d), correct answer, optional
+        image. Pass mark TBC. Always randomise both question order and answer order. Per-question
+        performance tracked for reporting (to identify ambiguous questions or topics that trip users up).
       </DevNote>
     </div>
   )

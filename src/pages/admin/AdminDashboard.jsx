@@ -50,12 +50,6 @@ export default function AdminDashboard() {
         >
           View April Entries
         </Link>
-        <Link
-          to="/admin/prize-draw"
-          className="bg-white hover:bg-slate-50 text-slate-700 font-semibold px-5 py-2.5 rounded-lg border border-slate-300 transition-colors text-sm"
-        >
-          Run Prize Draw
-        </Link>
       </div>
 
       {/* Chart */}
@@ -91,16 +85,21 @@ export default function AdminDashboard() {
       </div>
 
       {/* Annotations */}
-      <Annotation title="Admin Access Control">
-        Who has admin access? Just Sophia and Miriam (comms team), or also senior management? Do different roles need different permission levels? E.g. a "viewer" role for management who can see reports but not edit content.
+      <Annotation title="Admin Access (Agreed)">
+        Only the NLWA comms team (four to five people) need staff access. No requirement for separate
+        permission levels or SSO integration with existing NLWA systems. No dedicated admin user
+        management screen needed - admin accounts can be managed directly in the database/auth tools.
       </Annotation>
 
-      <Annotation title="Dashboard Priorities">
-        Which metrics matter most? These are initial suggestions based on the specification - confirm what NLWA actually wants to see at a glance. Should this dashboard be the admin home page, or should it be the module list?
+      <Annotation title="Dashboard Content (Note)">
+        The "Run Prize Draw" button should be removed - the draw happens offline from a CSV export
+        of eligible participants (agreed Session 1). Dashboard metrics shown (registrations, active
+        users, quiz pass rate, modules published) to be confirmed with NLWA.
       </Annotation>
 
-      <DevNote title="Admin Authentication">
-        Admin interface needs separate authentication from the public site. Role-based access control if multiple permission levels. Consider: SSO with existing NLWA systems?
+      <DevNote title="Admin Auth Implementation">
+        Simple admin authentication separate from the public site. No RBAC, no SSO. Four to five
+        static admin accounts managed directly in database/auth tooling. Minimal build effort.
       </DevNote>
     </div>
   )

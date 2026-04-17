@@ -139,20 +139,34 @@ export default function ModuleEditor() {
       </div>
 
       {/* Annotations */}
-      <Annotation title="Video Source Format">
-        Does NLWA upload video files directly, or provide Vimeo/YouTube URLs? Direct upload requires video transcoding infrastructure (Mux). URL-based approach is simpler but relies on external hosting. Who manages the video hosting account?
+      <Annotation title="Video Source (Agreed)">
+        NLWA uploads videos to their hosting platform (most likely Vimeo) and provides the URL to the
+        module editor. The editor supports pasting a Vimeo or similar URL. Scoping is still to be done
+        on video delivery and player integration.
       </Annotation>
 
-      <Annotation title="Text Alternative Authorship">
-        Who writes the text alternative content? NLWA comms team? Resource Media? A freelancer? Is it created alongside the video or after? This is potentially the biggest content bottleneck - each module needs both formats.
+      <Annotation title="Thumbnail Image (Agreed)">
+        Miriam requested a thumbnail upload field on the module editor for use on the landing page
+        and dashboard module cards.
       </Annotation>
 
-      <Annotation title="Content Preview">
-        Can staff preview the module exactly as a resident would see it before publishing? This is important for quality assurance but adds development effort.
+      <Annotation title="Text Alternative Deferred for Pilot (Agreed)">
+        For the pilot, users who cannot watch video will be offered a "contact us" option rather than
+        a full parallel text content path. NLWA provides information in an alternative format on
+        request. This significantly reduces the editor and build scope. WCAG implications of
+        video-gated content still need investigation (action: Miriam/Sophia).
       </Annotation>
 
-      <DevNote title="Rich Text Editor">
-        Tiptap, Lexical, or CMS-native editor. Needs: headings, bold/italic, images (with alt text for accessibility), ordered/unordered lists. Image upload and storage required.
+      <Annotation title="Content Creation Guidance (Agreed)">
+        Video creators should write the quiz questions (or at least identify the key learning points)
+        before filming, to ensure the video content supports the quiz. Sophia and Miriam agreed this
+        is important guidance for their team.
+      </Annotation>
+
+      <DevNote title="Module Editor Fields">
+        Title, description, month/year, status, start date, end date, Vimeo URL, thumbnail image
+        upload, quiz link. No rich text editor needed for pilot (text alternative deferred). Thumbnail
+        requires image upload and storage.
       </DevNote>
     </div>
   )
